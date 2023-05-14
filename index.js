@@ -4,7 +4,7 @@ const add = document.getElementById("add");
 const itemList = document.getElementById("ul");
 //maximum length of input field
 input.maxLength = 35;
-
+input.focus();
 // Load saved data on page load
 window.addEventListener("load", () => {
   showTask();
@@ -26,22 +26,34 @@ add.addEventListener("click", () => {
   input.value = "";
 
   saveData();
-
-  itemList.addEventListener("click", (e) => {
-    if (e.target.tagName === "LI") {
-      if (e.target.classList.contains("checked")) {
-        e.target.classList.remove("checked", "btn-color", "fade-in");
-      } else {
-        e.target.classList.add("checked", "btn-color");
-      }
-      saveData();
-      //remove li when click to the close button
-    } else if (e.target.tagName === "SPAN") {
-      e.target.parentElement.remove();
-      saveData();
-    }
-  });
+  input.focus();
 });
+
+// add event listener to itemList element for "click" event
+itemList.addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    if (e.target.classList.contains("checked")) {
+      e.target.classList.remove("checked", "btn-color", "fade-in");
+    } else {
+      e.target.classList.add("checked", "btn-color");
+    }
+    saveData();
+    //remove li when click to the close button
+  } else if (e.target.tagName === "SPAN") {
+    e.target.parentElement.remove();
+    input.focus();
+    saveData();
+  }
+});
+
+// add event listener to input field for "keypress" event
+input.addEventListener("keypress", (e) => {
+  if (e.keyCode === 13) {
+    // trigger the same code that is executed when the "add" button is clicked
+    add.click();
+  }
+});
+
 //setitme to store data
 function saveData() {
   try {

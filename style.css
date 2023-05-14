@@ -93,7 +93,7 @@ ul li::before {
   height: 10px;
   border: 1px solid #fff;
   left: -1px;
-  top: 14px;
+  top: 17px;
   border-radius: 50%;
   transition: all 0.3s linear;
 }
@@ -110,7 +110,7 @@ ul li.checked::before {
 
 li span {
   position: absolute;
-  top: 10px;
+  top: 14px;
   right: 0;
 }
 
