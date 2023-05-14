@@ -1,0 +1,149 @@
+/* google font (Robotto) */
+@import url("https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Merriweather:wght@300;400;700;900&family=Poppins:wght@200;400;700&family=Roboto:wght@400;700&display=swap");
+
+/* reset utility */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "Castoro Titling", cursive;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+/* color pallete */
+:root {
+  --bg-color: #000000;
+  --row-bg: #38363638;
+  --btn-color: rgb(0, 236, 86);
+  --text-color: #fff;
+}
+/* aligning horizontally center */
+body {
+  height: 100vh;
+  justify-content: center;
+  background: rgb(0, 163, 184);
+}
+/* whole container*/
+#container {
+  width: 18rem;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  margin-top: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
+  border-radius: 6px;
+  border-radius: 3px;
+}
+/* title */
+h2 {
+  color: var(--text-color);
+  padding-bottom: 0.4rem;
+}
+/* input and add button */
+.row {
+  width: 100%;
+  height: 2rem;
+  background-color: var(--row-bg);
+  overflow: hidden;
+  margin: 1rem 0 0.3rem 0;
+  border-radius: 0.3rem;
+}
+/* input field */
+#input {
+  all: unset;
+  width: 80%;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  padding-left: 0.7rem;
+  font-family: "Roboto" sans-serif;
+}
+/* input place holder */
+::placeholder {
+  font-size: 0.9rem;
+}
+/* add button */
+#add {
+  all: unset;
+  width: 14%;
+  height: 100%;
+  background-color: var(--btn-color);
+  font-size: 0.9rem;
+  text-align: center;
+}
+/* items will be added here */
+ul {
+  margin-top: 0.3rem;
+}
+/* items stytle */
+ul li {
+  padding-top: 0.3rem;
+  color: #fff;
+  position: relative;
+  padding: 1rem 0 0 1rem;
+  font-size: 0.8rem;
+  font-weight: thin;
+  transition: all 0.3s linear;
+}
+/* checked and unchecked style */
+ul li::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #fff;
+  left: -1px;
+  top: 14px;
+  border-radius: 50%;
+  transition: all 0.3s linear;
+}
+/* will be toglled from the js */
+ul li.checked::before {
+  background-color: var(--btn-color);
+  border: none;
+}
+/* line through task
+    that been completed */
+.checked {
+  text-decoration: line-through 3px rgb(26, 255, 0);
+}
+
+li span {
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+/* breakpoint */
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 60%;
+  }
+  body {
+    display: grid;
+    place-content: center;
+  }
+  /* whole container */
+  #container {
+    width: 80%;
+    min-width: 250px;
+    padding: 2rem 1rem;
+  }
+  /* input field */
+  #input {
+    width: 82%;
+  }
+  /* list items */
+  ul li {
+    padding: 2rem 0 0 1.7rem;
+  }
+  /* checked and unchecked style */
+  ul li::before {
+    top: 17px;
+  }
+  /* close button */
+  li span {
+    top: 19px;
+    right: 0;
+  }
+}
